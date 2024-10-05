@@ -1,1 +1,49 @@
 
+pipeline {
+    agent any
+
+     parameters { 
+         choice(name: 'ACTION', choices: ['Apply', 'Destroy'], description: 'Choose the Terraform action') 
+     } 
+     
+    stages {
+        stage('Git CheckOut') {
+            steps {
+                git 'https://github.com/RISHANT7102/Provisioning_AWS_Infrastructure_Using_Terraform_and_Jenkins_Pipeline.git'
+            }
+        }
+        
+                 stage('Terraform Init') { 
+             steps { 
+                dir('Source Code'){
+                sh 'terraform init'
+                }
+            } 
+        } 
+  
+         stage('Terraform Plan') { 
+             steps {
+                dir('Source Code'){
+                    sh 'terraform plan'
+                }   
+             } 
+        } 
+  
+         stage('Terraform Apply/Destroy') { 
+             steps {
+                 dir('Source Code'){
+                    script { 
+                     if (params.ACTION == 'Apply') { 
+                         echo "Running terraform apply..." 
+                         sh 'terraform apply -auto-approve'
+                     } else if (params.ACTION == 'Destroy') { 
+                         echo "Running terraform destroy..." 
+                         sh 'terraform destroy -auto-approve'
+                     } 
+                   }
+                }
+                  
+            } 
+        } 
+    }
+}
