@@ -78,7 +78,7 @@ resource "aws_instance" "my_instance" {
   ami           = "ami-0fff1b9a61dec8a5f"  
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.my_subnet.id
-  security_groups = [aws_security_group.allow_ssh.name]
+  security_groups = [aws_security_group.allow_ssh.id]
   key_name = aws_key_pair.TF_Key.key_name
   tags = {
     Name = "MyInstance"
