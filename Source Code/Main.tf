@@ -24,7 +24,7 @@ resource "aws_subnet" "my_subnet" {
 # Create an S3 bucket
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-unique-bucket-name-123456"  # Ensure the bucket name is globally unique
+  bucket = "DevOps_855"  # Ensure the bucket name is globally unique
   acl    = "private"
 
   tags = {
