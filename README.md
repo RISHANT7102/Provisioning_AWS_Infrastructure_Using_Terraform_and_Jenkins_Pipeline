@@ -1,11 +1,11 @@
-# Provisioning_AWS_Infrastructure_Using_Terraform_and_Jenkins_Pipeline
+# Provisioning AWS Infrastructure Using Terraform and Jenkins Pipeline
 
 Overview
-
+-
 This project demonstrates how to provision AWS infrastructure using Terraform in combination with a Jenkins pipeline. It creates a Virtual Private Cloud (VPC), subnet, S3 bucket, security group, RSA key pair, and an EC2 instance.
 
 Prerequisites:
-
+-
 Before you get started, ensure you have the following:
 •	An AWS account.
 •	An EC2 instance with Jenkins, Terraform, and Git installed and configured.
@@ -37,17 +37,19 @@ The Jenkins pipeline automates the following stages:
 4.	Terraform Apply/Destroy: Applies the Terraform configuration or destroys the resources based on user input.
 
 Parameters:
+-
 •	ACTION: Choose between Apply to create the resources or Destroy to delete them.
 
 How to Use:
+-
 1.	Configure Jenkins:
-2.  Set up a new pipeline job in Jenkins.
-3.	Point it to your Git repository.
-4.	Ensure that Jenkins has the necessary IAM permissions to access AWS resources.
+a.  Set up a new pipeline job in Jenkins.
+b.	Point it to your Git repository.
+c.	Ensure that Jenkins has the necessary IAM permissions to access AWS resources.
    
 2.	Run the Pipeline:
-1.	Trigger the Jenkins job.
-2.  Select Apply to provision resources or Destroy to tear them down.
+a.	Trigger the Jenkins job.
+b.  Select Apply to provision resources or Destroy to tear them down.
 
 
 
